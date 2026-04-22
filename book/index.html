@@ -318,37 +318,9 @@
   <div class="section-head"><h2>&#128197; Booking form</h2><p>Fill in your dates and we'll confirm availability.</p></div>
   <div class="booking-grid">
     <div class="panel" data-reveal>
-      <h3>Booking enquiry</h3>
-      <!-- TODO: Replace [FORMSPREE-ID] with your Formspree form ID from https://formspree.io -->
-      <form action="https://formspree.io/f/[FORMSPREE-ID]" method="POST" style="display:grid;gap:14px">
-        <div class="form-row">
-          <div class="form-group"><label class="label" for="startDate">Start date *</label><input id="startDate" name="start_date" type="date" class="input" required /></div>
-          <div class="form-group"><label class="label" for="endDate">End date *</label><input id="endDate" name="end_date" type="date" class="input" required /></div>
-        </div>
-        <div class="form-group">
-          <label class="label" for="productSelect">Which inflatable? *</label>
-          <select id="productSelect" name="product" class="select" required>
-            <option value="">Select a product</option>
-            <option value="the-eliminator-high-slide-obstacle-course">The Eliminator High Slide Obstacle Course - &euro;300</option><option value="army-boot-camp-high-slide-obstacle-course">Army Boot Camp High Slide Obstacle Course</option><option value="crocodile-dundee-high-slide-obstacle-course">Crocodile Dundee High Slide Obstacle Course - &euro;280</option><option value="jaws-the-shark-high-slide-obstacle-course">Jaws The Shark High Slide Obstacle Course - &euro;280</option><option value="disco-clubhouse-obstacle-course">Disco Clubhouse Obstacle Course - &euro;300</option><option value="lizzy-the-lizard-high-slide-obstacle-course">Lizzy the Lizard High Slide Obstacle Course - &euro;280</option><option value="rainbow-high-slide-obstacle-course">Rainbow High Slide Obstacle Course</option><option value="army-combat-high-slide-obstacle-course">Army Combat High Slide Obstacle Course - &euro;280</option><option value="nuclear-danger-high-slide-obstacle-course">Nuclear Danger High Slide Obstacle Course - &euro;280</option><option value="yellow-submarine-high-slide-obstacle-course">Yellow Submarine High Slide Obstacle Course - &euro;280</option><option value="minnions-high-slide-obstacle-course">Minnions High Slide Obstacle Course - &euro;280</option><option value="rockey-the-tiger-high-slide-obstacle-course">Rockey the Tiger High Slide Obstacle Course - &euro;280</option><option value="booster-adventure-run-obstacle-course">BOOSTER Adventure Run Obstacle Course - &euro;200</option><option value="energy-rush-obstacle-course">ENERGY RUSH Obstacle Course - &euro;200</option><option value="congo-the-gorilla-high-slide">CONGO The Gorilla High Slide - &euro;300</option><option value="bouncy-castle-and-slide-combo-units">Bouncy Castle & Slide Combo Units - &euro;200</option><option value="gazebo-45-mtr-x-3-mtr">Gazebo 4.5 Mtr x 3 Mtr</option><option value="party-marquee-8x4-mtr-with-white-pvc">PARTY MARQUEE 8x4 Mtr with White PVC</option>
-          </select>
-        </div>
-        <div class="form-group" style="margin-top:4px">
-          <label class="label">&#129518; Add-ons (optional)</label>
-          <div style="display:grid;gap:8px;padding:14px;border-radius:var(--radius-sm);border:2px solid var(--border);background:var(--accent-soft)">
-            <label style="display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:500;cursor:pointer"><input type="checkbox" name="addon_tables_chairs" value="yes" style="width:16px;height:16px;cursor:pointer"> Tables &amp; Chairs (price on enquiry)</label>
-            <label style="display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:500;cursor:pointer"><input type="checkbox" name="addon_marquee" value="yes" style="width:16px;height:16px;cursor:pointer"> Party Marquee 8x4m (price on enquiry)</label>
-            <label style="display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:500;cursor:pointer"><input type="checkbox" name="addon_gazebo" value="yes" style="width:16px;height:16px;cursor:pointer"> Gazebo 4.5m x 3m (price on enquiry)</label>
-          </div>
-        </div>
-        <div class="form-group"><label class="label" for="bname">Your name *</label><input id="bname" name="name" type="text" class="input" required /></div>
-        <div class="form-group"><label class="label" for="bemail">Your email *</label><input id="bemail" name="email" type="email" class="input" required /></div>
-        <div class="form-group"><label class="label" for="bphone">Your phone *</label><input id="bphone" name="phone" type="tel" class="input" required /></div>
-        <div class="form-group"><label class="label" for="blocation">Delivery address *</label><input id="blocation" name="location" type="text" class="input" placeholder="e.g. Oranmore, Co. Galway" required /></div>
-        <div class="form-group"><label class="label" for="bnotes">Notes (optional)</label><textarea id="bnotes" name="notes" class="input" rows="3" style="resize:vertical;font-family:var(--body)" placeholder="Event type, access notes, etc."></textarea></div>
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-        <input type="hidden" name="_subject" value="New booking request from Galway Bouncy Castles website" />
-        <button type="submit" class="btn btn-primary" style="width:100%">Send booking request</button>
-      </form>
+      <h3>Book your hire</h3>
+      <div id="partyops-booking-widget" style="min-height:420px"></div>
+      <script src="https://partyops.vercel.app/widget.js" data-business-id="a12eb699-71ba-413c-b93d-01190296aa36"></script>
       <p style="font-size:.82rem;color:var(--muted);margin-top:12px">We'll confirm availability within a few hours during office hours (8am-7pm).</p>
     </div>
     <div class="sidebar-stack">
