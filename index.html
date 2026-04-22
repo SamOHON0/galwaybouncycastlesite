@@ -83,12 +83,15 @@
     @media(min-width:1280px){.hero{padding:40px 0 28px}.hero-grid{gap:48px;grid-template-columns:1.3fr 1fr}}
     @media(min-width:1600px){.hero{padding:56px 0 36px}.hero-grid{gap:64px}}
     .hero-title{font-family:var(--heading);font-weight:800;font-size:clamp(2.4rem,5.5vw,4.4rem);line-height:.95;letter-spacing:-.02em}
-    .hero-title-logo{margin:0;line-height:0;display:block}
-    .hero-logo{display:block;width:100%;max-width:520px;height:auto;margin:0 auto 0 0;filter:drop-shadow(0 6px 0 rgba(13,27,94,.18))}
-    @media(min-width:1280px){.hero-logo{max-width:600px}}
-    @media(min-width:1600px){.hero-logo{max-width:680px}}
-    @media(max-width:768px){.hero-logo{max-width:420px;margin:0 auto}}
-    @media(max-width:480px){.hero-logo{max-width:320px}}
+    .hero-title-logo{margin:-16px 0 -8px -8px;line-height:0;display:block}
+    .hero-logo{display:block;width:100%;max-width:460px;height:auto;margin:0;filter:drop-shadow(0 4px 0 rgba(13,27,94,.14))}
+    @media(min-width:1280px){.hero-logo{max-width:520px}}
+    @media(min-width:1600px){.hero-logo{max-width:580px}}
+    @media(max-width:768px){.hero-logo{max-width:380px;margin:0 auto}.hero-title-logo{margin:-8px auto 0;text-align:center}}
+    @media(max-width:480px){.hero-logo{max-width:300px}}
+    .hero-tagline{font-family:var(--heading);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:800;line-height:1.05;margin:6px 0 10px;color:var(--text)}
+    .hero-tagline .ht-accent{background:linear-gradient(135deg,#FF6B35 0%,#FFD700 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    @media(max-width:768px){.hero-tagline{text-align:center}}
     .hero-title .hl{color:var(--primary)}
     .hero-subtitle{font-family:var(--heading);font-size:clamp(1rem,2vw,1.35rem);font-weight:700;color:var(--purple);margin-top:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
     .hero-subtitle .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block}
@@ -99,8 +102,15 @@
     /* Section head rainbow underline */
     .section-head h2::after{content:'';display:block;width:50px;height:4px;border-radius:99px;margin-top:8px;background:linear-gradient(to right,#FF2D9B,#FF6B35,#FFD700,#22C55E,#00A8E8,#9B3DEA)}
     .hero-copy{font-size:1.02rem;color:var(--muted);line-height:1.7;margin:14px 0 18px;max-width:540px}.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
-    .hero-visual{position:relative;display:grid;place-items:center;padding:24px 20px;border-radius:var(--radius);background:linear-gradient(135deg,#FFF9D6 0%,#FFE8F5 50%,#E0F4FF 100%);box-shadow:var(--shadow);border:3px solid var(--border);overflow:hidden}
+    .hero-visual{position:relative;display:grid;place-items:center;padding:20px 16px;border-radius:var(--radius);background:linear-gradient(135deg,#FFF9D6 0%,#FFE8F5 50%,#E0F4FF 100%);box-shadow:var(--shadow);border:3px solid var(--border);overflow:hidden}
     .hero-visual img{width:100%;border-radius:10px}
+    .hero-carousel{position:relative;width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#0d1b5e}
+    .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
+    .hero-slide.active{opacity:1}
+    .hero-slide img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+    .hero-carousel-dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px;z-index:2}
+    .hero-carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);border:none;padding:0;cursor:pointer;transition:background .2s,transform .2s}
+    .hero-carousel-dot.active{background:#fff;transform:scale(1.3)}
     .hero-badge{display:inline-block;margin-top:10px;padding:7px 14px;border-radius:50px;background:linear-gradient(135deg,#FFD700,#FF6B35);color:var(--text);font-size:.75rem;font-weight:800;border:2px solid var(--border)}
     .promo{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:16px 24px;border-radius:var(--radius);margin:12px 0;background:var(--primary);border:3px solid var(--border);font-size:.92rem;font-weight:600;color:var(--text);text-align:center;box-shadow:var(--shadow)}
     .info-row{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:16px}
@@ -300,6 +310,7 @@
   <div class="hero-grid">
     <div>
       <h1 class="hero-title hero-title-logo"><img class="hero-logo" src="/gblogo.png" alt="Galway's #1 Bouncy Castle &amp; Obstacle Course Hire - Galway Bouncy Castles" width="600" height="600" /></h1>
+      <p class="hero-tagline"><span class="ht-accent">Galway's #1</span> Bouncy Castle Hire!</p>
       <div class="hero-subtitle">
         <span>&#127881; Family-Run by Adrian &amp; Denise</span><span class="dot"></span>
         <span>&#128205; Galway City &amp; County</span><span class="dot"></span>
@@ -313,7 +324,15 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div style="width:100%;aspect-ratio:4/3;border-radius:10px;background:linear-gradient(135deg,#FFD700 0%,#FF6B35 50%,#FF2D9B 100%);display:grid;place-items:center;font-size:5rem">&#127914;</div>
+      <div class="hero-carousel" id="heroCarousel">
+        <div class="hero-slide active"><img src="/images/products/jaws-the-shark-high-slide-obstacle-course/hero.jpg" alt="Jaws The Shark High Slide Obstacle Course" loading="eager" /></div>
+        <div class="hero-slide"><img src="/images/products/disco-clubhouse-obstacle-course/hero.jpg" alt="Disco Clubhouse Obstacle Course" loading="lazy" /></div>
+        <div class="hero-slide"><img src="/images/products/congo-the-gorilla-high-slide/hero.jpg" alt="CONGO The Gorilla High Slide" loading="lazy" /></div>
+        <div class="hero-slide"><img src="/images/products/minnions-high-slide-obstacle-course/hero.jpg" alt="Minnions High Slide Obstacle Course" loading="lazy" /></div>
+        <div class="hero-slide"><img src="/images/products/rainbow-high-slide-obstacle-course/hero.jpg" alt="Rainbow High Slide Obstacle Course" loading="lazy" /></div>
+        <div class="hero-slide"><img src="/images/products/the-eliminator-high-slide-obstacle-course/hero.jpg" alt="The Eliminator High Slide Obstacle Course" loading="lazy" /></div>
+        <div class="hero-carousel-dots" id="heroCarouselDots"></div>
+      </div>
       <span class="hero-badge">Bouncy fun in Galway!</span>
     </div>
   </div>
@@ -707,6 +726,32 @@ window.addEventListener('DOMContentLoaded', () => {
       io.observe(el);
     });
   }
+
+  // Hero carousel
+  (function(){
+    var slides = document.querySelectorAll('#heroCarousel .hero-slide');
+    var dotsWrap = document.getElementById('heroCarouselDots');
+    if(!slides.length || !dotsWrap) return;
+    var i = 0, timer;
+    slides.forEach(function(_, idx){
+      var b = document.createElement('button');
+      b.className = 'hero-carousel-dot' + (idx === 0 ? ' active' : '');
+      b.setAttribute('aria-label', 'Slide ' + (idx+1));
+      b.addEventListener('click', function(){ go(idx); reset(); });
+      dotsWrap.appendChild(b);
+    });
+    var dots = dotsWrap.querySelectorAll('.hero-carousel-dot');
+    function go(n){
+      slides[i].classList.remove('active');
+      dots[i].classList.remove('active');
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('active');
+      dots[i].classList.add('active');
+    }
+    function tick(){ go(i + 1); }
+    function reset(){ clearInterval(timer); timer = setInterval(tick, 4000); }
+    reset();
+  })();
 });
 </script>
 </body>
