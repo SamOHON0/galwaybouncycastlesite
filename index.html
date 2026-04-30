@@ -79,7 +79,7 @@
     .page-title-bar .breadcrumb a{color:var(--orange);font-weight:600;cursor:pointer}
     @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
     /* Hero - logo+text top, rectangular carousel below */
-    .hero{padding:20px 24px 18px;background:linear-gradient(135deg,rgba(255,247,214,.5) 0%,rgba(255,232,245,.4) 50%,rgba(224,244,255,.5) 100%);border-radius:var(--radius);margin-bottom:4px;border:3px solid var(--border);box-shadow:var(--shadow)}
+    .hero{padding:20px 24px 18px;background:linear-gradient(135deg,#FFF7D6 0%,#FFE3F2 50%,#D4ECFF 100%);border-radius:var(--radius);margin-bottom:4px;border:3px solid var(--border);box-shadow:var(--shadow)}
     @media(min-width:1280px){.hero{padding:28px 36px 24px}}
     @media(max-width:640px){.hero{padding:16px 16px 14px}}
     .hero-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:28px;align-items:center;margin-bottom:12px}
@@ -271,9 +271,32 @@
     /* Responsive */
     @media(max-width:768px){.hero-grid,.booking-grid{grid-template-columns:1fr}.nav,.topbar-actions{display:none}.burger{display:flex}}
     @media(max-width:640px){.page{padding:0 14px}.topbar{margin:0 -14px;width:calc(100% + 28px);padding:10px 14px}.btn:not(.btn-sm):not(.social-link){width:100%}.form-row,.area-checker-row{flex-direction:column}.tcard{min-width:270px}.card-grid,.featured-grid{grid-template-columns:1fr}.brand-mark{height:40px}.hero-title{font-size:2.2rem}.promo{font-size:.84rem}.weather-row{flex-direction:column;text-align:center}.card,.step,.stat,.accordion-item,.feat,.event-chip,.panel,.side-card,.area-checker,.weather-checker{box-shadow:3px 3px 0 var(--border)}.card:hover,.event-chip:hover,.show-more-btn:hover,.fab:hover{transform:none;box-shadow:3px 3px 0 var(--border)}}
+  
+    /* Mobile brightness + contrast bump */
+    @media(max-width:768px){
+      body{background:#FFFFFF}
+      .hero{background:linear-gradient(135deg,#FFEFA0 0%,#FFCCEB 50%,#B8E0FF 100%)}
+      .hero-tagline{color:#0D1B5E;font-weight:800}
+      .hero-subtitle{color:#0D1B5E}
+      .hero-copy{color:#0D1B5E;font-weight:500}
+      .section-head h2{color:#0D1B5E}
+      .section-head p{color:#3a4a72}
+      .card-desc{color:#3a4a72}
+      .card-tag{font-weight:800}
+      .promo{background:linear-gradient(135deg,#FFE066,#FFB400);font-weight:700}
+      .nav-link,.mobile-nav a{color:#0D1B5E;font-weight:700}
+      .accordion-item summary{color:#0D1B5E;font-weight:700}
+      .panel,.side-card{background:#FFFFFF}
+    }
+  
+    /* Category icons */
+    .cat-card{transition:transform .15s,box-shadow .15s}
+    .cat-icon{width:84px;height:84px;margin:0 auto 12px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#FFF9D6 0%,#FFE8F5 50%,#E0F4FF 100%);border:3px solid var(--border);box-shadow:var(--shadow-sm)}
+    .cat-icon svg{width:60px;height:60px;display:block}
+    @media(max-width:640px){.cat-icon{width:74px;height:74px}.cat-icon svg{width:54px;height:54px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"EntertainmentBusiness","@id":"https://www.galwaybouncycastles.ie/#business","name":"Galway Bouncy Castles","alternateName":"Galway Bouncy Castles Hire","description":"Family-run bouncy castle, obstacle course, high slide, combo unit, marquee and gazebo hire covering Galway City and County.","url":"https://www.galwaybouncycastles.ie/","telephone":"+353871019000","email":"galwaybouncingcastles@gmail.com","priceRange":"\u20ac\u20ac","address":{"@type":"PostalAddress","addressLocality":"Galway","addressRegion":"County Galway","addressCountry":"IE"},"areaServed":[{"@type":"Place","name":"Galway City"},{"@type":"Place","name":"Oranmore"},{"@type":"Place","name":"Claregalway"},{"@type":"Place","name":"Tuam"},{"@type":"Place","name":"Headford"},{"@type":"Place","name":"Annaghdown"},{"@type":"Place","name":"Carnmore"},{"@type":"Place","name":"Maree"},{"@type":"Place","name":"Corrandulla"},{"@type":"Place","name":"Cregmore"},{"@type":"Place","name":"Belclare"},{"@type":"Place","name":"Corofin"},{"@type":"Place","name":"Cahirlistrane"},{"@type":"Place","name":"Abbeyknockmoy"},{"@type":"Place","name":"Lackagh / Turloughmore"},{"@type":"City","name":"Galway"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"19:00"}],"sameAs":["https://www.facebook.com/galwaybouncycastles/","https://www.instagram.com/galway_bouncy_castles","https://www.youtube.com/@galwaybouncycastles"],"founder":[{"@type":"Person","name":"Adrian Glynn"},{"@type":"Person","name":"Denise Glynn"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":10,"bestRating":"5"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to hire a bouncy castle in Galway?","acceptedAnswer":{"@type":"Answer","text":"Our bouncy castle & slide combo units start from \u20ac200. Obstacle courses range from \u20ac280 to \u20ac300 depending on size and theme. Book two consecutive days and get the 2nd day for only \u20ac30 extra (excluding April and May, subject to availability)."}},{"@type":"Question","name":"What areas do you cover?","acceptedAnswer":{"@type":"Answer","text":"We cover Galway City and County including Oranmore, Claregalway, Tuam, Headford, Annaghdown, Carnmore, Maree, Corrandulla, Cregmore, Belclare, Corofin, Cahirlistrane, Abbeyknockmoy, Lackagh and Turloughmore. If your area isn't listed, call us on <a href=\"tel:0871019000\" style=\"color:var(--orange);font-weight:700\">087 101 9000</a> - we may still be able to help."}},{"@type":"Question","name":"Do you deliver and set up?","acceptedAnswer":{"@type":"Answer","text":"Yes. We deliver, set up and collect every inflatable. All we need is level ground, access to a regular electrical socket, and a bit of space. Setup usually takes 15-20 minutes."}},{"@type":"Question","name":"What's your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Cancellations are free of charge. We just ask for 24 hours notice so we can offer the slot to someone else."}},{"@type":"Question","name":"What happens if it rains?","acceptedAnswer":{"@type":"Answer","text":"Most of our bouncy castles and combo units come with rain covers. You can also add a marquee or gazebo for extra shelter. We'll always stay in touch closer to the date if the forecast looks uncertain."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"EntertainmentBusiness","@id":"https://www.galwaybouncycastles.ie/#business","name":"Galway Bouncy Castles","alternateName":"Galway Bouncy Castles Hire","description":"Family-run bouncy castle, obstacle course, high slide, combo unit, marquee and gazebo hire covering Galway City and County.","url":"https://www.galwaybouncycastles.ie/","telephone":"+353871019000","email":"galwaybouncingcastles@gmail.com","priceRange":"\u20ac\u20ac","address":{"@type":"PostalAddress","addressLocality":"Galway","addressRegion":"County Galway","addressCountry":"IE"},"areaServed":[{"@type":"Place","name":"Galway City"},{"@type":"Place","name":"Oranmore"},{"@type":"Place","name":"Claregalway"},{"@type":"Place","name":"Tuam"},{"@type":"Place","name":"Headford"},{"@type":"Place","name":"Annaghdown"},{"@type":"Place","name":"Carnmore"},{"@type":"Place","name":"Maree"},{"@type":"Place","name":"Corrandulla"},{"@type":"Place","name":"Cregmore"},{"@type":"Place","name":"Belclare"},{"@type":"Place","name":"Corofin"},{"@type":"Place","name":"Cahirlistrane"},{"@type":"Place","name":"Abbeyknockmoy"},{"@type":"Place","name":"Lackagh / Turloughmore"},{"@type":"City","name":"Galway"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"19:00"}],"sameAs":["https://www.facebook.com/galwaybouncycastles/","https://www.instagram.com/galway_bouncy_castles","https://www.youtube.com/@galwaybouncycastles"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":10,"bestRating":"5"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost to hire a bouncy castle in Galway?","acceptedAnswer":{"@type":"Answer","text":"All hires are 2-day rentals at the listed price, so two days costs the same as one. Combo units start from \u20ac200, obstacle courses range from \u20ac280 to \u20ac300 depending on size and theme. Add a 3rd day from just \u20ac70 extra."}},{"@type":"Question","name":"What areas do you cover?","acceptedAnswer":{"@type":"Answer","text":"We cover Galway City and County including Oranmore, Claregalway, Tuam, Headford, Annaghdown, Carnmore, Maree, Corrandulla, Cregmore, Belclare, Corofin, Cahirlistrane, Abbeyknockmoy, Lackagh and Turloughmore. If your area isn't listed, call us on <a href=\"tel:0871019000\" style=\"color:var(--orange);font-weight:700\">087 101 9000</a> - we may still be able to help."}},{"@type":"Question","name":"Do you deliver and set up?","acceptedAnswer":{"@type":"Answer","text":"Yes. We deliver, set up and collect every inflatable. All we need is level ground, access to a regular electrical socket, and a bit of space. Setup usually takes 15-20 minutes."}},{"@type":"Question","name":"What's your cancellation policy?","acceptedAnswer":{"@type":"Answer","text":"Cancellations are free of charge. We just ask for 24 hours notice so we can offer the slot to someone else."}},{"@type":"Question","name":"What happens if it rains?","acceptedAnswer":{"@type":"Answer","text":"Most of our bouncy castles and combo units come with rain covers. You can also add a marquee or gazebo for extra shelter. We'll always stay in touch closer to the date if the forecast looks uncertain."}}]}</script>
 </head>
 <body>
 <div class="confetti-wrap"><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div><div class="confetti"></div></div>
@@ -326,7 +349,7 @@
     <div class="hero-text">
       <p class="hero-tagline"><span class="ht-accent">Galway's #1</span> Bouncy Castle Hire!</p>
       <div class="hero-subtitle">
-        <span>&#127881; Family-Run by Adrian &amp; Denise</span><span class="dot"></span>
+        <span>&#127881; Family-Run Galway Business</span><span class="dot"></span>
         <span>&#128205; Galway City &amp; County</span><span class="dot"></span>
         <span>&#11088; 100% Satisfaction</span>
       </div>
@@ -351,7 +374,7 @@
     </div>
   </div>
 </section>
-<div class="promo">&#127873; <strong>2-Day Special:</strong> Book two consecutive days, get the 2nd for only &euro;30 extra! <span style="font-size:.82rem;opacity:.8">(Excl. April/May, subject to availability)</span></div>
+<div class="promo">&#127873; <strong>All hires are 2-day rentals.</strong> The listed price covers both days. Add a 3rd day from just <strong>&euro;70 extra</strong>.</div>
 
 <!-- Scrolling ticker -->
 <div style="overflow:hidden;border-top:3px solid var(--border);border-bottom:3px solid var(--border);background:var(--primary);padding:10px 0;margin:10px 0">
@@ -379,7 +402,50 @@
 <section class="section">
   <div class="section-head"><h2>&#128218; Browse by category</h2><p>Everything we hire, sorted by type.</p></div>
   <div class="featured-grid">
-    <a href="/category/obstacle-courses/" class="card" data-reveal style="padding:22px;text-align:center;color:var(--text)"><div style="font-size:3rem;margin-bottom:10px">&#127947;</div><h3 style="font-family:var(--heading);font-weight:800;margin-bottom:6px">Obstacle Courses</h3><p style="font-size:.85rem;color:var(--muted)">14 options &rarr;</p></a><a href="/category/slides/" class="card" data-reveal style="padding:22px;text-align:center;color:var(--text)"><div style="font-size:3rem;margin-bottom:10px">&#127906;</div><h3 style="font-family:var(--heading);font-weight:800;margin-bottom:6px">Slides</h3><p style="font-size:.85rem;color:var(--muted)">1 options &rarr;</p></a><a href="/category/bouncy-castle-and-slide-combo-units/" class="card" data-reveal style="padding:22px;text-align:center;color:var(--text)"><div style="font-size:3rem;margin-bottom:10px">&#127984;</div><h3 style="font-family:var(--heading);font-weight:800;margin-bottom:6px">Bouncy Castle & Slide Combo Units</h3><p style="font-size:.85rem;color:var(--muted)">1 options &rarr;</p></a><a href="/category/marquees-and-gazebos/" class="card" data-reveal style="padding:22px;text-align:center;color:var(--text)"><div style="font-size:3rem;margin-bottom:10px">&#9978;</div><h3 style="font-family:var(--heading);font-weight:800;margin-bottom:6px">Marquees & Gazebos</h3><p style="font-size:.85rem;color:var(--muted)">2 options &rarr;</p></a>
+    <a href="/category/obstacle-courses/" class="card cat-card" data-reveal style="padding:22px;text-align:center;color:var(--text)"><div class="cat-icon"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="10" y="38" width="20" height="55" fill="#FF6B35" stroke="#0D1B5E" stroke-width="2.5" rx="3"/>
+        <rect x="70" y="38" width="20" height="55" fill="#FF6B35" stroke="#0D1B5E" stroke-width="2.5" rx="3"/>
+        <rect x="30" y="55" width="40" height="38" fill="#FFD700" stroke="#0D1B5E" stroke-width="2.5"/>
+        <polygon points="9,38 20,22 31,38" fill="#FF2D9B" stroke="#0D1B5E" stroke-width="2.5" stroke-linejoin="round"/>
+        <polygon points="69,38 80,22 91,38" fill="#FF2D9B" stroke="#0D1B5E" stroke-width="2.5" stroke-linejoin="round"/>
+        <line x1="20" y1="22" x2="20" y2="10" stroke="#0D1B5E" stroke-width="2"/>
+        <polygon points="20,10 30,14 20,18" fill="#22C55E" stroke="#0D1B5E" stroke-width="1.5"/>
+        <line x1="80" y1="22" x2="80" y2="10" stroke="#0D1B5E" stroke-width="2"/>
+        <polygon points="80,10 90,14 80,18" fill="#22C55E" stroke="#0D1B5E" stroke-width="1.5"/>
+        <path d="M 44 93 L 44 75 Q 44 70 50 70 Q 56 70 56 75 L 56 93 Z" fill="#0D1B5E"/>
+        <circle cx="20" cy="55" r="2.5" fill="#FFD700"/>
+        <circle cx="80" cy="55" r="2.5" fill="#FFD700"/>
+    </svg></div><h3 style="font-family:var(--heading);font-weight:800;margin-bottom:6px">Obstacle Courses</h3><p style="font-size:.85rem;color:var(--muted)">14 options &rarr;</p></a><a href="/category/slides/" class="card cat-card" data-reveal style="padding:22px;text-align:center;color:var(--text)"><div class="cat-icon"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="65" y="22" width="22" height="60" fill="#00A8E8" stroke="#0D1B5E" stroke-width="2.5" rx="3"/>
+        <rect x="58" y="18" width="36" height="8" fill="#FF2D9B" stroke="#0D1B5E" stroke-width="2.5" rx="2"/>
+        <path d="M 65 36 Q 36 50 18 86" stroke="#0D1B5E" stroke-width="14" fill="none" stroke-linecap="round"/>
+        <path d="M 65 36 Q 36 50 18 86" stroke="#FFD700" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <line x1="76" y1="82" x2="76" y2="38" stroke="#0D1B5E" stroke-width="2.5"/>
+        <line x1="69" y1="50" x2="76" y2="50" stroke="#0D1B5E" stroke-width="2.5"/>
+        <line x1="69" y1="62" x2="76" y2="62" stroke="#0D1B5E" stroke-width="2.5"/>
+        <line x1="69" y1="74" x2="76" y2="74" stroke="#0D1B5E" stroke-width="2.5"/>
+        <line x1="76" y1="18" x2="76" y2="8" stroke="#0D1B5E" stroke-width="2"/>
+        <polygon points="76,8 87,12 76,16" fill="#22C55E" stroke="#0D1B5E" stroke-width="1.5"/>
+    </svg></div><h3 style="font-family:var(--heading);font-weight:800;margin-bottom:6px">Slides</h3><p style="font-size:.85rem;color:var(--muted)">1 options &rarr;</p></a><a href="/category/bouncy-castle-and-slide-combo-units/" class="card cat-card" data-reveal style="padding:22px;text-align:center;color:var(--text)"><div class="cat-icon"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="10" y="42" width="50" height="50" fill="#FF2D9B" stroke="#0D1B5E" stroke-width="2.5" rx="3"/>
+        <rect x="10" y="34" width="9" height="10" fill="#FF2D9B" stroke="#0D1B5E" stroke-width="2.5"/>
+        <rect x="24" y="34" width="9" height="10" fill="#FF2D9B" stroke="#0D1B5E" stroke-width="2.5"/>
+        <rect x="38" y="34" width="9" height="10" fill="#FF2D9B" stroke="#0D1B5E" stroke-width="2.5"/>
+        <rect x="51" y="34" width="9" height="10" fill="#FF2D9B" stroke="#0D1B5E" stroke-width="2.5"/>
+        <path d="M 60 55 Q 78 65 88 90" stroke="#0D1B5E" stroke-width="13" fill="none" stroke-linecap="round"/>
+        <path d="M 60 55 Q 78 65 88 90" stroke="#FFD700" stroke-width="8" fill="none" stroke-linecap="round"/>
+        <path d="M 28 92 L 28 72 Q 28 67 35 67 Q 42 67 42 72 L 42 92 Z" fill="#0D1B5E"/>
+        <circle cx="20" cy="55" r="2" fill="#FFD700"/>
+        <circle cx="50" cy="55" r="2" fill="#FFD700"/>
+    </svg></div><h3 style="font-family:var(--heading);font-weight:800;margin-bottom:6px">Bouncy Castle & Slide Combo Units</h3><p style="font-size:.85rem;color:var(--muted)">1 options &rarr;</p></a><a href="/category/marquees-and-gazebos/" class="card cat-card" data-reveal style="padding:22px;text-align:center;color:var(--text)"><div class="cat-icon"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="50,18 92,52 8,52" fill="#9B3DEA" stroke="#0D1B5E" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="14" y="52" width="72" height="38" fill="#FFD700" stroke="#0D1B5E" stroke-width="2.5"/>
+        <line x1="14" y1="52" x2="50" y2="78" stroke="#0D1B5E" stroke-width="2"/>
+        <line x1="86" y1="52" x2="50" y2="78" stroke="#0D1B5E" stroke-width="2"/>
+        <path d="M 38 90 L 38 75 Q 38 65 50 65 Q 62 65 62 75 L 62 90 Z" fill="#FF6B35" stroke="#0D1B5E" stroke-width="2.5"/>
+        <line x1="50" y1="18" x2="50" y2="6" stroke="#0D1B5E" stroke-width="2"/>
+        <polygon points="50,6 62,10 50,14" fill="#22C55E" stroke="#0D1B5E" stroke-width="1.5"/>
+    </svg></div><h3 style="font-family:var(--heading);font-weight:800;margin-bottom:6px">Marquees & Gazebos</h3><p style="font-size:.85rem;color:var(--muted)">2 options &rarr;</p></a>
   </div>
 </section>
 
@@ -492,7 +558,7 @@
 <section class="section">
   <div class="section-head"><h2>&#128172; Happy customers</h2><p>Reviews from real Galway families. <a href="/pages/testimonials/" style="color:var(--orange);font-weight:700">Read more &rarr;</a></p></div>
   <div class="testimonials-scroll">
-    <article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"A very professional and efficient service, from ordering to drop off to pick up. The castle was great quality and would highly recommend Denise and team. Very happy customer!"</p><cite>Sean O'Connell</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Galway Bouncy Castles went over and beyond with providing me with a large Crocodile Obstacle Course at short notice. They saved the party. Great friendly, professional service. Well done!"</p><cite>Noel Kyne</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Just wanted to say thank you so much for the great service ye provided from start to finish. I was originally going to order off a company I used before but you were so helpful with providing links and information that I had to go with ye."</p><cite>Laura Cunningham</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"We had a fantastic celebration that was seamless because of your efficiency and professionalism. It is unfortunately unusual to receive such a high standard of service so this is why I'm reiterating: keep up your fantastic work. I look forward to being a return customer soon."</p><cite>Laragh Cunningham</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Thank you for the upgrade of the castle, the kids had a blast and a huge thanks to Adrian. He had scheduled to come pick up the bouncy on Sunday early and when he seen the kids playing in the garden he said he'd leave it. I think the cheers could be heard in Athenry!"</p><cite>Claire, Carnmore</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Just wanted to say big thank you for accommodating us at such short notice. The obstacle course was a great hit. Kids loved it. Kept them busy for hours. Thanks again!"</p><cite>Nadia</cite></article>
+    <article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"A very professional and efficient service, from ordering to drop off to pick up. The castle was great quality and would highly recommend the team. Very happy customer!"</p><cite>Sean O'Connell</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Galway Bouncy Castles went over and beyond with providing me with a large Crocodile Obstacle Course at short notice. They saved the party. Great friendly, professional service. Well done!"</p><cite>Noel Kyne</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Just wanted to say thank you so much for the great service ye provided from start to finish. I was originally going to order off a company I used before but you were so helpful with providing links and information that I had to go with ye."</p><cite>Laura Cunningham</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"We had a fantastic celebration that was seamless because of your efficiency and professionalism. It is unfortunately unusual to receive such a high standard of service so this is why I'm reiterating: keep up your fantastic work. I look forward to being a return customer soon."</p><cite>Laragh Cunningham</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Thank you for the upgrade of the castle, the kids had a blast and a huge thanks to the team. They had scheduled to come pick up the bouncy on Sunday early and when they seen the kids playing in the garden they said they'd leave it. I think the cheers could be heard in Athenry!"</p><cite>Claire, Carnmore</cite></article><article class="tcard" data-reveal><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Just wanted to say big thank you for accommodating us at such short notice. The obstacle course was a great hit. Kids loved it. Kept them busy for hours. Thanks again!"</p><cite>Nadia</cite></article>
   </div>
 </section>
 
@@ -513,7 +579,7 @@
   <div class="footer-inner" style="display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));align-items:flex-start;padding:28px 0 20px">
     <div>
       <h4 style="font-family:var(--heading);font-size:1.1rem;font-weight:800;margin-bottom:10px">Galway Bouncy Castles</h4>
-      <p style="font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:10px">Family-run bouncy castle hire by Adrian &amp; Denise Glynn. Obstacle courses, high slides, combo units, marquees &amp; gazebos across Galway City &amp; County.</p>
+      <p style="font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:10px">Family-run bouncy castle hire across Galway City &amp; County. Obstacle courses, high slides, combo units, marquees &amp; gazebos.</p>
       <div class="social-row">
         <a class="social-link" href="https://www.facebook.com/galwaybouncycastles/" target="_blank" rel="noreferrer" aria-label="Facebook">&#128216;</a>
         <a class="social-link" href="https://www.instagram.com/galway_bouncy_castles" target="_blank" rel="noreferrer" aria-label="Instagram">&#128247;</a>
@@ -593,13 +659,13 @@ function closeMobileNav(){
 
 // ===== CHAT =====
 const chatKB = [
-  { keys:['price','cost','how much','rates','pricing','quote','euro'], reply:'Our combo units start from <strong>&euro;200</strong> and obstacle courses range from <strong>&euro;280-&euro;300</strong>. Book 2 days in a row and the 2nd day is just <strong>&euro;30 extra</strong>! Call 087 101 9000 for a quote.' },
+  { keys:['price','cost','how much','rates','pricing','quote','euro'], reply:'<strong>All hires are 2-day rentals at the listed price</strong>. Combo units start from <strong>&euro;200</strong>, obstacle courses range from <strong>&euro;280-&euro;300</strong>. Add a 3rd day from just <strong>&euro;70 extra</strong>. Call 087 101 9000 for a quote.' },
   { keys:['hour','open','when','available','time'], reply:'We\'re open <strong>7 days a week from 8am to 7pm</strong>. Call 087 101 9000 or WhatsApp us anytime!' },
   { keys:['book','reserve','appointment','schedule','hire'], reply:'You can book online via the <a href="/book/" style="color:var(--orange);font-weight:700">Book Now</a> page, call 087 101 9000, or WhatsApp us.' },
   { keys:['area','deliver','location','where','cover','galway'], reply:'We cover <strong>Galway City &amp; County</strong> - Oranmore, Claregalway, Tuam, Headford, Annaghdown, Carnmore, Maree and more. See the <a href="/areas/" style="color:var(--orange);font-weight:700">Areas</a> page.' },
   { keys:['cancel','refund','policy'], reply:'Cancellations are <strong>free of charge</strong> with 24 hours notice. No hassle.' },
   { keys:['rain','wet','weather','bad'], reply:'Most of our castles come with <strong>rain covers</strong>! You can also add a marquee for extra shelter.' },
-  { keys:['insurance','insured','liability'], reply:'Our PL insurance has expired and it\'s currently not possible for any bouncy castle company in Ireland to obtain it. Hire is at your own risk. Industry efforts are underway.' },
+  { keys:['insurance','insured','liability'], reply:'It is currently very difficult for Irish Bouncing Castle companies to secure Public Liability Insurance. We hope to finalise suitable insurance in the coming months. Until then, hire is at your own risk.' },
   { keys:['setup','set up','install','electric','power','plug'], reply:'We deliver, set up and collect. All we need is level ground and a regular electrical socket. Setup takes 15-20 minutes.' },
   { keys:['obstacle','course','slide','combo','castle','marquee','gazebo'], reply:'We have 14 obstacle courses, high slides, combo units (Paw Patrol, Peppa Pig, Princess, LOL Dolls, John Deere), plus marquees &amp; gazebos. See them all on <a href="/category/obstacle-courses/" style="color:var(--orange);font-weight:700">our castles</a> page.' },
   { keys:['birthday','communion','confirmation','party','event','corporate','camp','school'], reply:'We cover birthdays, communions, confirmations, corporate events, summer camps, BBQs, school and community events.' },

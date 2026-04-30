@@ -12,13 +12,13 @@ function closeMobileNav(){
 
 // ===== CHAT =====
 const chatKB = [
-  { keys:['price','cost','how much','rates','pricing','quote','euro'], reply:'Our combo units start from <strong>&euro;200</strong> and obstacle courses range from <strong>&euro;280-&euro;300</strong>. Book 2 days in a row and the 2nd day is just <strong>&euro;30 extra</strong>! Call 087 101 9000 for a quote.' },
+  { keys:['price','cost','how much','rates','pricing','quote','euro'], reply:'<strong>All hires are 2-day rentals at the listed price</strong>. Combo units start from <strong>&euro;200</strong>, obstacle courses range from <strong>&euro;280-&euro;300</strong>. Add a 3rd day from just <strong>&euro;70 extra</strong>. Call 087 101 9000 for a quote.' },
   { keys:['hour','open','when','available','time'], reply:'We\'re open <strong>7 days a week from 8am to 7pm</strong>. Call 087 101 9000 or WhatsApp us anytime!' },
   { keys:['book','reserve','appointment','schedule','hire'], reply:'You can book online via the <a href="/book/" style="color:var(--orange);font-weight:700">Book Now</a> page, call 087 101 9000, or WhatsApp us.' },
   { keys:['area','deliver','location','where','cover','galway'], reply:'We cover <strong>Galway City &amp; County</strong> - Oranmore, Claregalway, Tuam, Headford, Annaghdown, Carnmore, Maree and more. See the <a href="/areas/" style="color:var(--orange);font-weight:700">Areas</a> page.' },
   { keys:['cancel','refund','policy'], reply:'Cancellations are <strong>free of charge</strong> with 24 hours notice. No hassle.' },
   { keys:['rain','wet','weather','bad'], reply:'Most of our castles come with <strong>rain covers</strong>! You can also add a marquee for extra shelter.' },
-  { keys:['insurance','insured','liability'], reply:'Our PL insurance has expired and it\'s currently not possible for any bouncy castle company in Ireland to obtain it. Hire is at your own risk. Industry efforts are underway.' },
+  { keys:['insurance','insured','liability'], reply:'It is currently very difficult for Irish Bouncing Castle companies to secure Public Liability Insurance. We hope to finalise suitable insurance in the coming months. Until then, hire is at your own risk.' },
   { keys:['setup','set up','install','electric','power','plug'], reply:'We deliver, set up and collect. All we need is level ground and a regular electrical socket. Setup takes 15-20 minutes.' },
   { keys:['obstacle','course','slide','combo','castle','marquee','gazebo'], reply:'We have 14 obstacle courses, high slides, combo units (Paw Patrol, Peppa Pig, Princess, LOL Dolls, John Deere), plus marquees &amp; gazebos. See them all on <a href="/category/obstacle-courses/" style="color:var(--orange);font-weight:700">our castles</a> page.' },
   { keys:['birthday','communion','confirmation','party','event','corporate','camp','school'], reply:'We cover birthdays, communions, confirmations, corporate events, summer camps, BBQs, school and community events.' },
