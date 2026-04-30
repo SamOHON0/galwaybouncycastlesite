@@ -78,51 +78,49 @@
     .page-title-bar .breadcrumb{font-size:.84rem;color:var(--muted);margin-top:4px}
     .page-title-bar .breadcrumb a{color:var(--orange);font-weight:600;cursor:pointer}
     @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-    /* Hero - logo+text top, rectangular carousel below */
-    .hero{padding:20px 24px 18px;background:linear-gradient(135deg,#FFF7D6 0%,#FFE3F2 50%,#D4ECFF 100%);border-radius:var(--radius);margin-bottom:4px;border:3px solid var(--border);box-shadow:var(--shadow)}
-    @media(min-width:1280px){.hero{padding:28px 36px 24px}}
-    @media(max-width:640px){.hero{padding:16px 16px 14px}}
-    .hero-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:28px;align-items:center;margin-bottom:12px}
-    @media(min-width:1280px){.hero-top{gap:44px;margin-bottom:16px}}
-    @media(max-width:768px){.hero-top{grid-template-columns:1fr;gap:8px;text-align:center;margin-bottom:12px}}
-    .hero-logo-wrap{display:flex;justify-content:center;align-items:center}
-    .hero-logo{display:block;width:100%;max-width:380px;height:auto;filter:drop-shadow(0 4px 0 rgba(13,27,94,.14))}
-    @media(min-width:1280px){.hero-logo{max-width:440px}}
-    @media(min-width:1600px){.hero-logo{max-width:500px}}
-    @media(max-width:768px){.hero-logo{max-width:300px;margin:0 auto}}
+    /* Hero - background carousel with floating content card */
+    .hero{position:relative;overflow:hidden;border-radius:var(--radius);margin-bottom:4px;border:3px solid var(--border);box-shadow:var(--shadow);background:#0d1b5e;isolation:isolate;min-height:clamp(560px,62vw,720px);display:flex;align-items:center;padding:36px}
+    @media(min-width:1280px){.hero{padding:48px;min-height:680px}}
+    @media(min-width:1600px){.hero{padding:64px;min-height:760px}}
+    @media(max-width:768px){.hero{padding:20px;min-height:clamp(540px,100vw,720px);justify-content:center}}
+    @media(max-width:480px){.hero{padding:14px}}
+    /* Background carousel fills the hero */
+    .hero .hero-carousel{position:absolute;inset:0;z-index:0;width:100%;height:100%;aspect-ratio:auto;border:none;border-radius:0;box-shadow:none;background:#0d1b5e}
+    .hero .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+    .hero .hero-slide.active{opacity:1}
+    .hero .hero-slide img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
+    .hero .hero-slide.active img{animation:kenburns 9s ease-out forwards}
+    @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+    /* Soft gradient overlay so card pops */
+    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(110deg,rgba(13,27,94,.30) 0%,rgba(13,27,94,.05) 55%,rgba(13,27,94,.30) 100%),linear-gradient(180deg,transparent 70%,rgba(0,0,0,.35) 100%);pointer-events:none}
+    /* Content card floating over carousel */
+    .hero-card{position:relative;z-index:2;max-width:560px;margin:0;padding:32px 36px 28px;background:#FFFCF5;border:3px solid var(--border);border-radius:var(--radius);box-shadow:6px 6px 0 var(--border)}
+    @media(min-width:1280px){.hero-card{max-width:600px;padding:36px 40px 32px}}
+    @media(max-width:768px){.hero-card{max-width:100%;padding:24px;box-shadow:4px 4px 0 var(--border)}}
+    @media(max-width:480px){.hero-card{padding:20px;box-shadow:3px 3px 0 var(--border)}}
+    /* Logo on top of card */
+    .hero-logo{display:block;width:100%;max-width:340px;height:auto;margin:0 auto 12px;filter:drop-shadow(0 3px 0 rgba(13,27,94,.14))}
+    @media(min-width:1280px){.hero-logo{max-width:380px}}
     @media(max-width:480px){.hero-logo{max-width:240px}}
-    .hero-text{display:flex;flex-direction:column;justify-content:center;min-width:0}
-    .hero-title{font-family:var(--heading);font-weight:800;font-size:clamp(2.4rem,5.5vw,4.4rem);line-height:.95;letter-spacing:-.02em}
+    .hero-title{font-family:var(--heading);font-weight:800;font-size:clamp(2.4rem,5.5vw,4.4rem);letter-spacing:-.02em;margin:0;line-height:0;text-align:center}
     .hero-title .hl{color:var(--primary)}
     .hero-title .hl{background:linear-gradient(135deg,#FF6B35 0%,#FFD700 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-tagline{font-family:var(--heading);font-size:clamp(1.5rem,3vw,2.4rem);font-weight:800;line-height:1.05;margin:0 0 8px;color:var(--text)}
+    .hero-tagline{font-family:var(--heading);font-size:clamp(1.4rem,2.8vw,2rem);font-weight:800;line-height:1.05;margin:0 0 10px;color:var(--text);text-align:center}
     .hero-tagline .ht-accent{background:linear-gradient(135deg,#FF6B35 0%,#FFD700 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    @media(max-width:768px){.hero-tagline{text-align:center}}
-    .hero-subtitle{font-family:var(--heading);font-size:clamp(.9rem,1.6vw,1.08rem);font-weight:700;color:var(--purple);margin:0 0 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-    @media(max-width:768px){.hero-subtitle{justify-content:center}}
+    .hero-subtitle{font-family:var(--heading);font-size:clamp(.85rem,1.5vw,1rem);font-weight:700;color:var(--purple);margin:0 0 12px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
     .hero-subtitle .dot{width:5px;height:5px;border-radius:50%;background:var(--orange);display:inline-block}
     @keyframes gshift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
     /* Rainbow topbar accent line */
     .topbar::after{content:'';display:block;height:3px;background:linear-gradient(to right,#FF2D9B,#FF6B35,#FFD700,#22C55E,#00A8E8,#9B3DEA);position:absolute;bottom:-3px;left:0;right:0}
     /* Section head rainbow underline */
     .section-head h2::after{content:'';display:block;width:50px;height:4px;border-radius:99px;margin-top:8px;background:linear-gradient(to right,#FF2D9B,#FF6B35,#FFD700,#22C55E,#00A8E8,#9B3DEA)}
-    .hero-copy{font-size:1rem;color:var(--muted);line-height:1.55;margin:0 0 12px;max-width:560px}
-    @media(max-width:768px){.hero-copy{margin-left:auto;margin-right:auto;font-size:.94rem}}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
-    @media(max-width:768px){.hero-actions{justify-content:center}}
-    /* Rectangular showcase carousel below */
-    .hero-showcase{position:relative}
-    .hero-carousel{position:relative;width:100%;aspect-ratio:16/7;border-radius:var(--radius);overflow:hidden;background:#0d1b5e;border:3px solid var(--border);box-shadow:var(--shadow)}
-    @media(max-width:768px){.hero-carousel{aspect-ratio:4/3}}
-    @media(max-width:480px){.hero-carousel{aspect-ratio:4/3}}
-    .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
-    .hero-slide.active{opacity:1}
-    .hero-slide img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center}
-    .hero-slide.active img{animation:kenburns 9s ease-out forwards}
-    @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
-    .hero-carousel-dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:2}
-    .hero-carousel-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.5);border:none;padding:0;cursor:pointer;transition:background .2s,transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.4)}
-    .hero-carousel-dot.active{background:#fff;transform:scale(1.3)}
+    .hero-copy{font-size:.96rem;color:var(--muted);line-height:1.55;margin:0 0 16px;text-align:center}
+    @media(max-width:480px){.hero-copy{font-size:.9rem}}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+    /* Carousel dots, sit at bottom of hero above overlay */
+    .hero .hero-carousel-dots{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:3}
+    .hero .hero-carousel-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);border:none;padding:0;cursor:pointer;transition:background .2s,transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.5)}
+    .hero .hero-carousel-dot.active{background:#fff;transform:scale(1.3)}
     .hero-badge{display:inline-block;margin-top:10px;padding:7px 14px;border-radius:50px;background:linear-gradient(135deg,#FFD700,#FF6B35);color:var(--text);font-size:.75rem;font-weight:800;border:2px solid var(--border)}
     .promo{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:16px 24px;border-radius:var(--radius);margin:12px 0;background:var(--primary);border:3px solid var(--border);font-size:.92rem;font-weight:600;color:var(--text);text-align:center;box-shadow:var(--shadow)}
     .info-row{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:16px}
@@ -353,35 +351,30 @@
   </div>
 </div>
 <section class="hero">
-  <div class="hero-top">
-    <div class="hero-logo-wrap">
-      <h1 class="hero-title" style="margin:0;line-height:0"><img class="hero-logo" src="/gblogo.png" alt="Galway's #1 Bouncy Castle &amp; Obstacle Course Hire - Galway Bouncy Castles" width="600" height="600" /></h1>
-    </div>
-    <div class="hero-text">
-      <p class="hero-tagline"><span class="ht-accent">Galway's #1</span> Bouncy Castle Hire!</p>
-      <div class="hero-subtitle">
-        <span>&#127881; Family-Run Galway Business</span><span class="dot"></span>
-        <span>&#128205; Galway City &amp; County</span><span class="dot"></span>
-        <span>&#11088; 100% Satisfaction</span>
-      </div>
-      <p class="hero-copy">We are a family-run business covering Galway City and County. Whether it's a family home, corporate or community event, you can rely on Galway Bouncy Castles for great value, excellent service and clear communication. Our motto is simple: 100% customer satisfaction guaranteed.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="/book/">Reserve your date</a>
-        <a class="btn btn-whatsapp" href="https://wa.me/+353871019000" target="_blank" rel="noreferrer">&#128172; WhatsApp</a>
-        <!--email_off--><a class="btn btn-secondary" href="mailto:galwaybouncingcastles@gmail.com">Email us</a><!--/email_off-->
-      </div>
-    </div>
+  <div class="hero-carousel" data-carousel>
+    <div class="hero-slide active"><img src="/images/carousel/1.jpg" alt="" loading="eager" /></div>
+    <div class="hero-slide"><img src="/images/carousel/2.jpg" alt="" loading="lazy" /></div>
+    <div class="hero-slide"><img src="/images/carousel/3.jpg" alt="" loading="lazy" /></div>
+    <div class="hero-slide"><img src="/images/carousel/4.jpg" alt="" loading="lazy" /></div>
+    <div class="hero-slide"><img src="/images/carousel/5.jpg" alt="" loading="lazy" /></div>
+    <div class="hero-slide"><img src="/images/carousel/6.jpg" alt="" loading="lazy" /></div>
+    <div class="hero-slide"><img src="/images/carousel/7.jpg" alt="" loading="lazy" /></div>
+    <div class="hero-carousel-dots" data-carousel-dots></div>
   </div>
-  <div class="hero-showcase">
-    <div class="hero-carousel gbc-carousel" data-carousel>
-      <div class="hero-slide active"><img src="/images/carousel/1.jpg" alt="Galway Bouncy Castles event setup" loading="eager" /></div>
-      <div class="hero-slide"><img src="/images/carousel/2.jpg" alt="Galway Bouncy Castles delivery van" loading="lazy" /></div>
-      <div class="hero-slide"><img src="/images/carousel/3.jpg" alt="Nuclear Danger high slide" loading="lazy" /></div>
-      <div class="hero-slide"><img src="/images/carousel/4.jpg" alt="Red and blue obstacle course" loading="lazy" /></div>
-      <div class="hero-slide"><img src="/images/carousel/5.jpg" alt="Purple and green spike obstacle course" loading="lazy" /></div>
-      <div class="hero-slide"><img src="/images/carousel/6.jpg" alt="Kids enjoying the slide" loading="lazy" /></div>
-      <div class="hero-slide"><img src="/images/carousel/7.jpg" alt="Red and blue obstacle course on grass" loading="lazy" /></div>
-      <div class="hero-carousel-dots" data-carousel-dots></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-card">
+    <h1 class="hero-title"><img class="hero-logo" src="/gblogo.png" alt="Galway's #1 Bouncy Castle &amp; Obstacle Course Hire - Galway Bouncy Castles" width="600" height="600" /></h1>
+    <p class="hero-tagline"><span class="ht-accent">Galway's #1</span> Bouncy Castle Hire!</p>
+    <div class="hero-subtitle">
+      <span>&#127881; Family-Run Galway Business</span><span class="dot"></span>
+      <span>&#128205; Galway City &amp; County</span><span class="dot"></span>
+      <span>&#11088; 100% Satisfaction</span>
+    </div>
+    <p class="hero-copy">Family-run hire across Galway City and County. Family events, corporate days or community events: rely on us for great value, excellent service and clear communication. 100% satisfaction guaranteed.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/book/">Reserve your date</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/+353871019000" target="_blank" rel="noreferrer">&#128172; WhatsApp</a>
+      <!--email_off--><a class="btn btn-secondary" href="mailto:galwaybouncingcastles@gmail.com">Email us</a><!--/email_off-->
     </div>
   </div>
 </section>
