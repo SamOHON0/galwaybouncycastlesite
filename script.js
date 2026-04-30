@@ -77,26 +77,59 @@ function checkArea(){
   }
 }
 
-// ===== WEATHER CHECKER =====
-function checkWeather(){
+// ===== WEATHER CHECKER (Open-Meteo, free, no API key) =====
+function _gbcWeatherFromCode(code, precipProb){
+  if(code >= 95) return {icon:'⛈️', label:'Thunderstorm', tip:'rain', tipText:'⚠️ Storms expected. Please contact us before the event - we may need to reschedule for safety.'};
+  if(code >= 80) return {icon:'🌧️', label:'Rain showers', tip:'rain', tipText:'☔ Rain showers likely. Our enclosed castles have rain covers. Add a marquee for extra shelter!'};
+  if(code >= 71) return {icon:'🌨️', label:'Snow', tip:'rain', tipText:'❄️ Snow expected. Please contact us to discuss your event.'};
+  if(code >= 61 && code <= 67) return {icon:'🌧️', label:'Rain', tip:'rain', tipText:'☔ Rain expected. Don\'t worry, our enclosed castles have rain covers. Add a marquee for extra shelter!'};
+  if(code >= 51 && code <= 57) return {icon:'🌦️', label:'Drizzle', tip:'ok', tipText:'💡 Light drizzle possible. Our combo units and obstacle courses have rain covers!'};
+  if(code === 45 || code === 48) return {icon:'🌫️', label:'Foggy', tip:'ok', tipText:'💡 Fog possible early on, should clear by midday.'};
+  if(code === 3) return {icon:'🌥️', label:'Overcast', tip:'ok', tipText:'💡 Dry but cloudy. Great party weather, marquee adds extra comfort.'};
+  if(code === 2) return {icon:'⛅', label:'Partly cloudy', tip:'good', tipText:'✅ Great party weather! Should stay dry all day.'};
+  if(code === 1) return {icon:'🌤️', label:'Mostly sunny', tip:'good', tipText:'✅ Lovely day for a party! Sun cream recommended.'};
+  if(code === 0) return {icon:'☀️', label:'Clear sky', tip:'good', tipText:'✅ Perfect bouncing weather! No rain cover needed.'};
+  if(precipProb > 60) return {icon:'🌧️', label:'Rain likely', tip:'rain', tipText:'☔ Rain likely. Our enclosed castles have rain covers.'};
+  if(precipProb > 30) return {icon:'🌦️', label:'Showers possible', tip:'ok', tipText:'💡 Some showers possible. Rain covers available.'};
+  return {icon:'🌤️', label:'Mixed', tip:'good', tipText:'✅ Should be a good day for a party!'};
+}
+async function checkWeather(){
   const dateVal = document.getElementById('weatherDate').value;
   if(!dateVal){ alert('Please pick a date.'); return; }
-  const d = new Date(dateVal + 'T12:00');
-  const fmtOpts = {weekday:'long', day:'numeric', month:'long'};
-  const dateFmt = d.toLocaleDateString('en-IE', fmtOpts);
-  const forecasts = [
-    {icon:'\u2600\uFE0F', label:'Sunny', temp:'18\u00B0C', desc:'Clear skies with light breeze', tip:'good', tipText:'\u2705 Perfect bouncing weather! No rain cover needed.'},
-    {icon:'\u26C5', label:'Partly Cloudy', temp:'15\u00B0C', desc:'Mix of cloud and sunshine, dry', tip:'good', tipText:'\u2705 Great party weather! Should stay dry all day.'},
-    {icon:'\uD83C\uDF24\uFE0F', label:'Mostly Sunny', temp:'17\u00B0C', desc:'Warm with occasional clouds', tip:'good', tipText:'\u2705 Lovely day for a party! Sun cream recommended.'},
-    {icon:'\uD83C\uDF25\uFE0F', label:'Overcast', temp:'13\u00B0C', desc:'Cloudy but dry, mild temperatures', tip:'ok', tipText:'\uD83D\uDCA1 Dry but cloudy. A marquee would add comfort.'},
-    {icon:'\uD83C\uDF27\uFE0F', label:'Light Showers', temp:'12\u00B0C', desc:'Scattered showers expected', tip:'ok', tipText:'\uD83D\uDCA1 Light rain possible. Our combo units and obstacle courses have rain covers!'},
-    {icon:'\uD83C\uDF27\uFE0F', label:'Rainy', temp:'10\u00B0C', desc:'Persistent rain throughout the day', tip:'rain', tipText:'\u2614 Rain expected. Don\'t worry, our enclosed castles have rain covers. Add a marquee for extra shelter!'}
-  ];
-  const hash = (d.getDate() * 7 + d.getMonth() * 13) % forecasts.length;
-  const f = forecasts[hash];
   const result = document.getElementById('weatherResult');
+  if(!result) return;
   result.className = 'weather-result show';
-  result.innerHTML = '<div class="weather-row"><div class="weather-icon">' + f.icon + '</div><div class="weather-info"><h4>' + dateFmt + '</h4><p>' + f.label + ' &middot; ' + f.temp + '</p><p>' + f.desc + '</p></div></div><div class="weather-tip ' + f.tip + '">' + f.tipText + '</div>';
+  result.innerHTML = '<div class="weather-row"><div class="weather-icon">⏳</div><div class="weather-info"><h4>Checking forecast...</h4><p>Looking up Galway conditions for your date.</p></div></div>';
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  const target = new Date(dateVal + 'T12:00');
+  const daysOut = Math.round((target - today) / 86400000);
+  const fmtOpts = {weekday:'long', day:'numeric', month:'long'};
+  const dateFmt = target.toLocaleDateString('en-IE', fmtOpts);
+
+  if(daysOut < 0){
+    result.innerHTML = '<div class="weather-row"><div class="weather-icon">📅</div><div class="weather-info"><h4>That date has passed</h4><p>Please pick a future date for your event.</p></div></div>';
+    return;
+  }
+  if(daysOut > 16){
+    result.innerHTML = '<div class="weather-row"><div class="weather-icon">📅</div><div class="weather-info"><h4>' + dateFmt + '</h4><p>Forecasts are only available up to 16 days ahead. Try again closer to your date.</p></div></div><div class="weather-tip ok">💡 In the meantime: most of our castles include rain covers, and you can add a marquee for guaranteed shelter.</div>';
+    return;
+  }
+
+  try{
+    const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=53.2707&longitude=-9.0568&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code&start_date=' + dateVal + '&end_date=' + dateVal + '&timezone=Europe%2FDublin');
+    if(!r.ok) throw new Error('weather api');
+    const data = await r.json();
+    if(!data.daily || !data.daily.weather_code || data.daily.weather_code[0] == null) throw new Error('no data');
+    const tempMax = Math.round(data.daily.temperature_2m_max[0]);
+    const tempMin = Math.round(data.daily.temperature_2m_min[0]);
+    const precipProb = data.daily.precipitation_probability_max[0] != null ? data.daily.precipitation_probability_max[0] : 0;
+    const code = data.daily.weather_code[0];
+    const f = _gbcWeatherFromCode(code, precipProb);
+    result.innerHTML = '<div class="weather-row"><div class="weather-icon">' + f.icon + '</div><div class="weather-info"><h4>' + dateFmt + '</h4><p>' + f.label + ' &middot; ' + tempMax + '°C (low ' + tempMin + '°C)</p><p>' + precipProb + '% chance of rain</p></div></div><div class="weather-tip ' + f.tip + '">' + f.tipText + '</div>';
+  }catch(err){
+    result.innerHTML = '<div class="weather-row"><div class="weather-icon">⚠️</div><div class="weather-info"><h4>Couldn\'t check weather</h4><p>Try again in a moment, or call us on <a href="tel:0871019000" style="color:var(--orange);font-weight:700">087 101 9000</a>.</p></div></div>';
+  }
 }
 
 // ===== ACCORDION =====
