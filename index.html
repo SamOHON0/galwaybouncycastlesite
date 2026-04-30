@@ -93,8 +93,10 @@
     @keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.12)}}
     /* Soft gradient overlay so card pops */
     .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(110deg,rgba(13,27,94,.30) 0%,rgba(13,27,94,.05) 55%,rgba(13,27,94,.30) 100%),linear-gradient(180deg,transparent 70%,rgba(0,0,0,.35) 100%);pointer-events:none}
-    /* Content card floating over carousel */
-    .hero-card{position:relative;z-index:2;max-width:560px;margin:0;padding:32px 36px 28px;background:#FFFCF5;border:3px solid var(--border);border-radius:var(--radius);box-shadow:6px 6px 0 var(--border)}
+    /* Content card floating over carousel - semi-transparent with backdrop blur */
+    .hero-card{position:relative;z-index:2;max-width:560px;margin:0;padding:32px 36px 28px;background:rgba(255,252,245,0.78);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border:3px solid var(--border);border-radius:var(--radius);box-shadow:6px 6px 0 var(--border)}
+    /* Fallback for browsers without backdrop-filter: bump opacity so text stays readable */
+    @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.hero-card{background:rgba(255,252,245,0.94)}}
     @media(min-width:1280px){.hero-card{max-width:600px;padding:36px 40px 32px}}
     @media(max-width:768px){.hero-card{max-width:100%;padding:24px;box-shadow:4px 4px 0 var(--border)}}
     @media(max-width:480px){.hero-card{padding:20px;box-shadow:3px 3px 0 var(--border)}}
@@ -105,16 +107,16 @@
     .hero-title{font-family:var(--heading);font-weight:800;font-size:clamp(2.4rem,5.5vw,4.4rem);letter-spacing:-.02em;margin:0;line-height:0;text-align:center}
     .hero-title .hl{color:var(--primary)}
     .hero-title .hl{background:linear-gradient(135deg,#FF6B35 0%,#FFD700 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-tagline{font-family:var(--heading);font-size:clamp(1.4rem,2.8vw,2rem);font-weight:800;line-height:1.05;margin:0 0 10px;color:var(--text);text-align:center}
+    .hero-tagline{font-family:var(--heading);font-size:clamp(1.4rem,2.8vw,2rem);font-weight:800;line-height:1.05;margin:0 0 10px;color:var(--text);text-align:center;text-shadow:0 1px 0 rgba(255,255,255,.6)}
     .hero-tagline .ht-accent{background:linear-gradient(135deg,#FF6B35 0%,#FFD700 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-subtitle{font-family:var(--heading);font-size:clamp(.85rem,1.5vw,1rem);font-weight:700;color:var(--purple);margin:0 0 12px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+    .hero-subtitle{font-family:var(--heading);font-size:clamp(.85rem,1.5vw,1rem);font-weight:800;color:#5b1d9c;margin:0 0 12px;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
     .hero-subtitle .dot{width:5px;height:5px;border-radius:50%;background:var(--orange);display:inline-block}
     @keyframes gshift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
     /* Rainbow topbar accent line */
     .topbar::after{content:'';display:block;height:3px;background:linear-gradient(to right,#FF2D9B,#FF6B35,#FFD700,#22C55E,#00A8E8,#9B3DEA);position:absolute;bottom:-3px;left:0;right:0}
     /* Section head rainbow underline */
     .section-head h2::after{content:'';display:block;width:50px;height:4px;border-radius:99px;margin-top:8px;background:linear-gradient(to right,#FF2D9B,#FF6B35,#FFD700,#22C55E,#00A8E8,#9B3DEA)}
-    .hero-copy{font-size:.96rem;color:var(--muted);line-height:1.55;margin:0 0 16px;text-align:center}
+    .hero-copy{font-size:.96rem;color:#0D1B5E;font-weight:500;line-height:1.55;margin:0 0 16px;text-align:center}
     @media(max-width:480px){.hero-copy{font-size:.9rem}}
     .hero-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
     /* Carousel dots, sit at bottom of hero above overlay */
