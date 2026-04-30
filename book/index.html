@@ -353,8 +353,28 @@
   <div class="booking-grid">
     <div class="panel" data-reveal>
       <h3>Book your hire</h3>
+      <div id="partyops-pre-select" style="display:none;font-size:.88rem;color:var(--muted);margin-bottom:10px"></div>
       <div id="partyops-booking-widget"></div>
-      <script src="https://partyops.vercel.app/widget.js" data-business-id="a12eb699-71ba-413c-b93d-01190296aa36"></script>
+      <script>
+        (function(){
+          var params = new URLSearchParams(location.search);
+          var slug = params.get('product');
+          var s = document.createElement('script');
+          s.src = 'https://partyops.vercel.app/widget.js';
+          s.setAttribute('data-business-id', 'a12eb699-71ba-413c-b93d-01190296aa36');
+          if (slug) {
+            // Best-effort pre-select hints - PartyOps reads whichever it supports
+            s.setAttribute('data-item', slug);
+            s.setAttribute('data-product', slug);
+            s.setAttribute('data-castle', slug);
+            s.setAttribute('data-slug', slug);
+            var note = document.getElementById('partyops-pre-select');
+            note.textContent = 'Pre-selecting: ' + slug.replace(/-/g, ' ');
+            note.style.display = 'block';
+          }
+          document.head.appendChild(s);
+        })();
+      </script>
       <p style="font-size:.82rem;color:var(--muted);margin-top:12px">We'll confirm availability within a few hours during office hours (8am-7pm).</p>
     </div>
     <div class="sidebar-stack">
